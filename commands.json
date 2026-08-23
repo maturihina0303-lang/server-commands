@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]鬼ごっこ1.21.1-fabric",
+    "genre": "【鬼】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]鬼ごっこ1.21.1-fabric",
+    "ver": "1.21.1",
+    "desc": "",
+    "id": "mt5jrzxz8k7w"
+  },
+  {
     "title": "[FA]人狼サバイバル1.20.4-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]人狼ゲーム1.20.4-fabric",
