@@ -1,5 +1,13 @@
 [
   {
+    "title": "[PA]1.18.2-paper",
+    "genre": "Paper",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.18.2-paper",
+    "ver": "1.18.2",
+    "desc": "",
+    "id": "mt5kinyg3ysh"
+  },
+  {
     "title": "[PA]1.18.1-paper",
     "genre": "Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.18.1-paper",
