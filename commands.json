@@ -1,13 +1,5 @@
 [
   {
-    "id": "seed3",
-    "title": "ゲームモード変更（クリエ）",
-    "genre": "ワールド",
-    "ver": "1.20〜1.21",
-    "cmd": "/gamemode creative <プレイヤー名>",
-    "desc": ""
-  },
-  {
     "id": "seed4",
     "title": "時間を朝にする",
     "genre": "天候・時間",
