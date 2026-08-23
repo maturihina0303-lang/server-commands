@@ -1,5 +1,13 @@
 [
   {
+    "title": "【FA】1.16.5-fabric",
+    "genre": "Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.16.5-fabric",
+    "ver": "1.16.5",
+    "desc": "",
+    "id": "mt5kfilfzkz1"
+  },
+  {
     "title": "【PA】1.21-paper",
     "genre": "Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.21-paper",
