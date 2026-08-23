@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]26.2-fabric",
+    "genre": "Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]26.2-fabric",
+    "ver": "26.2",
+    "desc": "",
+    "id": "mt5k8auwivrt"
+  },
+  {
     "title": "[FA]26.1-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]26.1-fabric",
