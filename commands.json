@@ -1,5 +1,13 @@
 [
   {
+    "title": "スクリーン表示",
+    "genre": "SSH",
+    "cmd": "screen -r mc_server",
+    "ver": "",
+    "desc": "",
+    "id": "mt5kk1e043r7"
+  },
+  {
     "title": "[FA]1.20.1-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.20.1-fabric",
