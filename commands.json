@@ -1,5 +1,13 @@
 [
   {
+    "title": "[PA]1.21.10-paper",
+    "genre": "Paper",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.21.10-paper",
+    "ver": "1.21.10",
+    "desc": "",
+    "id": "mt5jp0e775d8"
+  },
+  {
     "title": "[PA]100爆生活1.21.10-paper",
     "genre": "【企画】Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]100爆生活1.21.10-paper",
