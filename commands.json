@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]記者会見1.21.1-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]記者会見1.21.1-fabric",
+    "ver": "1.21.1",
+    "desc": "",
+    "id": "mt5k2zkqhvu2"
+  },
+  {
     "title": "[PA]建築伝言ゲーム1.21-paper",
     "genre": "【企画】Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]建築伝言ゲーム1.21-paper",
