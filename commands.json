@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]暗殺ごっこ1.21.1-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]暗殺ごっこ1.21.1-fabric",
+    "ver": "1.21.1",
+    "desc": "",
+    "id": "mt5jz8ml359z"
+  },
+  {
     "title": "[FA]蚊vs人間1.21-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]蚊vs人間1.21撮影-fabric",
