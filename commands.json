@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]ブロックかくれんぼ1.20.4-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]ブロックかくれんぼ1.20.4-fabric",
+    "ver": "1.20.4",
+    "desc": "",
+    "id": "mt5k6rl569aj"
+  },
+  {
     "title": "[FA]子育てサバイバル1.21.11-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]子育てサバイバル1.21.11-fabric",
