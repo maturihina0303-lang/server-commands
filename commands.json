@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]動物フレンズ1.21-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]動物フレンズ1.21-fabric",
+    "ver": "1.21",
+    "desc": "",
+    "id": "mt5jtfvv81yl"
+  },
+  {
     "title": "[PA]脱獄1.20.1-paper",
     "genre": "【企画】Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]脱獄1.20.1-paper",
