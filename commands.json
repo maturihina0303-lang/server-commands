@@ -1,5 +1,13 @@
 [
   {
+    "title": "[PA]建築伝言ゲーム1.21-paper",
+    "genre": "【企画】Paper",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [PA]建築伝言ゲーム1.21-paper",
+    "ver": "1.21",
+    "desc": "",
+    "id": "mt5k1xlly8oh"
+  },
+  {
     "title": "[FA]暗殺ごっこ1.21.1-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]暗殺ごっこ1.21.1-fabric",
