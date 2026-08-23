@@ -1,5 +1,13 @@
 [
   {
+    "title": "【PA】1.21.5-paper",
+    "genre": "Paper",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.21.5-paper",
+    "ver": "1.21.5",
+    "desc": "",
+    "id": "mt5kh4931x3p"
+  },
+  {
     "title": "【PA】1.21.3-paper",
     "genre": "Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.21.3-paper",
