@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]子育てサバイバル1.21.11-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]子育てサバイバル1.21.11-fabric",
+    "ver": "1.21.11",
+    "desc": "",
+    "id": "mt5k5ugqwb17"
+  },
+  {
     "title": "[V]1.26-vanilla",
     "genre": "Vanilla",
     "cmd": "cd ~/mc_servers\n./start_server.sh [V]1.26-vanilla",
