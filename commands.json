@@ -1,5 +1,13 @@
 [
   {
+    "title": "プログラム修正",
+    "genre": "SSH",
+    "cmd": "nano ~/mc_servers/start_server.sh",
+    "ver": "",
+    "desc": "",
+    "id": "mt5kkm8vfomz"
+  },
+  {
     "title": "スクリーン表示",
     "genre": "SSH",
     "cmd": "screen -r mc_server",
