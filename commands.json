@@ -1,5 +1,13 @@
 [
   {
+    "title": "[PA]ブリトデネク-1.21.8-paper",
+    "genre": "【企画】Paper",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [PA]ブリトデネク-1.21.8-paper",
+    "ver": "1.21.8",
+    "desc": "",
+    "id": "mt5jv0i69s32"
+  },
+  {
     "title": "[FA]動物フレンズ1.21-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]動物フレンズ1.21-fabric",
