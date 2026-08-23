@@ -8,7 +8,7 @@
     "id": "mt5kcb4zzs83"
   },
   {
-    "title": "【起動】1.20.4-forge",
+    "title": "【FO】1.20.4-forge",
     "genre": "Forge",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FO]1.20.4-forge",
     "ver": "1.20.4",
