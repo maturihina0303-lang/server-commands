@@ -1,5 +1,13 @@
 [
   {
+    "title": "[PA]脱獄1.20.1-paper",
+    "genre": "【企画】Paper",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [PA]脱獄1.20.1-paper",
+    "ver": "1.20.1",
+    "desc": "",
+    "id": "mt5jspz4gla8"
+  },
+  {
     "title": "[FA]鬼ごっこ1.21.1-fabric",
     "genre": "【鬼】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]鬼ごっこ1.21.1-fabric",
