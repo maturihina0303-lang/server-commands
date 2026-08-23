@@ -1,10 +1,1 @@
-[
-  {
-    "id": "seed5",
-    "title": "晴れにする",
-    "genre": "天候・時間",
-    "ver": "全般",
-    "cmd": "/weather clear",
-    "desc": ""
-  }
-]
+[]
