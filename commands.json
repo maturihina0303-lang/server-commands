@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]人狼サバイバル1.20.4-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]人狼ゲーム1.20.4-fabric",
+    "ver": "1.20.4",
+    "desc": "",
+    "id": "mt5jqwaqsz1p"
+  },
+  {
     "title": "[PA]1.21.10-paper",
     "genre": "Paper",
     "cmd": "cd ~/mc_servers\n./start_server.sh [PA]1.21.10-paper",
