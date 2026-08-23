@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]小人かくれんぼ1.21.1-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]小人かくれんぼ1.21.1-fabric",
+    "ver": "1.21.1",
+    "desc": "",
+    "id": "mt5k4e3th88n"
+  },
+  {
     "title": "[FA]IPOON1.20.4-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]IPOON1.20.4-fabric",
