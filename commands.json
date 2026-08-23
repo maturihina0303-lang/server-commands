@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]26.1.2-fabric",
+    "genre": "Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]26.1.2-fabric",
+    "ver": "26.1.2",
+    "desc": "",
+    "id": "mt5kaj7qy7s0"
+  },
+  {
     "title": "[FA]列車殺人事件26.1-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]列車殺人事件26.1-fabric",
