@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]IPOON1.20.4-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]IPOON1.20.4-fabric",
+    "ver": "1.20.4",
+    "desc": "",
+    "id": "mt5k3psoi3pu"
+  },
+  {
     "title": "[FA]記者会見1.21.1-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]記者会見1.21.1-fabric",
