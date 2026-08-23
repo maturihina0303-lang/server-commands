@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]26.1-fabric",
+    "genre": "Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]26.1-fabric",
+    "ver": "26.1",
+    "desc": "",
+    "id": "mt5k7oqkfzuu"
+  },
+  {
     "title": "[FA]ブロックかくれんぼ1.20.4-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]ブロックかくれんぼ1.20.4-fabric",
