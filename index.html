@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Server コマンド一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1d1a17;
+    --panel:#3a332c;
+    --panel-dark:#2b251f;
+    --slot-dark:#373737;
+    --stone:#7a7a7a;
+    --stone-lt:#a0a0a0;
+    --stone-dk:#555;
+    --grass:#5ea515;
+    --grass-lt:#7bc637;
+    --grass-dk:#3c6e0a;
+    --dirt:#79553a;
+    --gold:#fcdb05;
+    --txt:#e9e6df;
+    --txt-shadow:#3f3f3f;
+    --danger:#c0392b;
+    --danger-dk:#7d241a;
+    --diamond:#4fd1c9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'DotGothic16',monospace;
+    background:
+      linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),
+      repeating-conic-gradient(#3a3a3a 0% 25%, #333 0% 50%) 0/48px 48px;
+    color:var(--txt);
+    min-height:100vh;
+    padding:20px 14px 60px;
+    image-rendering:pixelated;
+  }
+  .wrap{max-width:1000px;margin:0 auto;}
+
+  header.hero{text-align:center;margin-bottom:22px;}
+  h1{
+    font-family:'Press Start 2P',monospace;
+    font-size:clamp(18px,4.4vw,34px);
+    color:var(--txt);line-height:1.5;
+    text-shadow:3px 3px 0 var(--txt-shadow), 4px 4px 0 rgba(0,0,0,.4);
+    letter-spacing:1px;
+  }
+  h1 .cube{color:var(--grass-lt);}
+  .subtitle{margin-top:12px;font-size:15px;color:#c9c3b8;letter-spacing:2px;}
+
+  .panel{
+    background:var(--panel);border:3px solid #221e19;
+    box-shadow:inset 3px 3px 0 rgba(255,255,255,.08),inset -3px -3px 0 rgba(0,0,0,.45),6px 6px 0 rgba(0,0,0,.35);
+    padding:18px;margin-bottom:22px;
+  }
+  .panel h2{
+    font-family:'Press Start 2P',monospace;font-size:13px;color:var(--grass-lt);
+    margin-bottom:16px;text-shadow:2px 2px 0 var(--txt-shadow);
+    display:flex;align-items:center;gap:10px;
+  }
+  .panel h2::before{
+    content:"";width:18px;height:18px;flex:0 0 auto;
+    background:linear-gradient(var(--grass-lt) 6px, var(--grass) 6px 9px, var(--dirt) 9px);
+    box-shadow:inset -2px -2px 0 rgba(0,0,0,.3);
+  }
+
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1 / -1;}
+  label{font-size:14px;color:#d8d2c6;letter-spacing:1px;}
+  label .req{color:var(--gold);}
+  input,select,textarea{
+    font-family:'DotGothic16',monospace;font-size:15px;color:#f4f1ea;
+    background:var(--slot-dark);border:3px solid;
+    border-color:#1b1b1b #6e6e6e #6e6e6e #1b1b1b;padding:10px 12px;width:100%;outline:none;
+  }
+  textarea{resize:vertical;min-height:64px;line-height:1.5;}
+  input:focus,select:focus,textarea:focus{
+    border-color:var(--grass) var(--grass-lt) var(--grass-lt) var(--grass);background:#2f2f2f;}
+  input::placeholder,textarea::placeholder{color:#8f8f8f;}
+
+  .mc-btn{
+    font-family:'DotGothic16',monospace;font-size:15px;letter-spacing:1px;color:#fff;
+    text-shadow:2px 2px 0 rgba(0,0,0,.55);background:var(--stone);border:3px solid;
+    border-color:var(--stone-lt) var(--stone-dk) var(--stone-dk) var(--stone-lt);
+    padding:11px 20px;cursor:pointer;image-rendering:pixelated;transition:filter .05s;user-select:none;
+  }
+  .mc-btn:hover{filter:brightness(1.15);}
+  .mc-btn:active{border-color:var(--stone-dk) var(--stone-lt) var(--stone-lt) var(--stone-dk);filter:brightness(.95);}
+  .mc-btn:disabled{opacity:.5;cursor:not-allowed;filter:none;}
+  .mc-btn.green{background:var(--grass);border-color:var(--grass-lt) var(--grass-dk) var(--grass-dk) var(--grass-lt);}
+  .mc-btn.red{background:var(--danger);border-color:#e05545 var(--danger-dk) var(--danger-dk) #e05545;}
+  .mc-btn.small{font-size:13px;padding:7px 12px;}
+  .form-actions{grid-column:1/-1;display:flex;gap:12px;justify-content:flex-end;margin-top:4px;}
+
+  .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:18px;}
+  .toolbar .field{flex:1 1 180px;}
+  .count-badge{
+    font-family:'Press Start 2P',monospace;font-size:11px;color:var(--gold);
+    text-shadow:2px 2px 0 var(--txt-shadow);align-self:center;white-space:nowrap;}
+
+  .list{display:grid;gap:14px;}
+  .card{
+    background:var(--panel-dark);border:3px solid;
+    border-color:#4d453b #191510 #191510 #4d453b;padding:14px 14px 12px;
+    box-shadow:4px 4px 0 rgba(0,0,0,.3);}
+  .card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;}
+  .card-title{font-size:18px;color:#fff;letter-spacing:1px;text-shadow:2px 2px 0 rgba(0,0,0,.5);
+    display:flex;align-items:center;gap:8px;}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{font-size:12px;letter-spacing:1px;padding:4px 9px;border:2px solid;
+    text-shadow:1px 1px 0 rgba(0,0,0,.5);color:#fff;white-space:nowrap;}
+  .tag.genre{background:var(--dirt);border-color:#9c7150 #4d3421 #4d3421 #9c7150;}
+  .tag.ver{background:#2a6f97;border-color:#3f92c4 #17405c #17405c #3f92c4;}
+  .cmd-row{display:flex;gap:10px;align-items:stretch;margin-top:12px;}
+  .cmd-box{
+    flex:1;font-family:'Press Start 2P',monospace;font-size:12px;line-height:1.7;color:var(--diamond);
+    background:#111;border:3px solid;border-color:#000 #333 #333 #000;padding:11px 12px;
+    overflow-x:auto;white-space:pre-wrap;word-break:break-all;}
+  .card-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .desc{margin-top:10px;font-size:14px;color:#c3bdb1;line-height:1.55;}
+
+  .empty{text-align:center;padding:40px 20px;color:#9a938a;font-size:15px;border:3px dashed #5a5148;}
+  .empty b{color:var(--grass-lt);}
+
+  #toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(140%);
+    background:var(--grass);border:3px solid;
+    border-color:var(--grass-lt) var(--grass-dk) var(--grass-dk) var(--grass-lt);
+    color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.5);font-size:15px;letter-spacing:1px;padding:12px 22px;
+    box-shadow:4px 4px 0 rgba(0,0,0,.4);transition:transform .25s cubic-bezier(.2,1.3,.4,1);z-index:50;max-width:90vw;text-align:center;}
+  #toast.show{transform:translateX(-50%) translateY(0);}
+  #toast.err{background:var(--danger);border-color:#e05545 var(--danger-dk) var(--danger-dk) #e05545;}
+
+  .hint{font-size:12px;color:#948d82;margin-top:4px;letter-spacing:.5px;line-height:1.5;}
+  .hint a{color:var(--diamond);}
+
+  /* editor bar */
+  .editorbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;}
+  .status{display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:1px;}
+  .dot{width:12px;height:12px;background:#888;box-shadow:inset -2px -2px 0 rgba(0,0,0,.3);}
+  .dot.ok{background:var(--grass-lt);}
+  .dot.warn{background:var(--gold);}
+  .dot.err{background:var(--danger);}
+  .dot.load{background:var(--diamond);animation:blink .8s steps(2) infinite;}
+  @keyframes blink{50%{opacity:.3;}}
+  .token-area{display:none;margin-top:14px;}
+  .token-area.show{display:block;}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;}
+  .row .field{flex:1 1 260px;}
+
+  @media(max-width:620px){.form-grid{grid-template-columns:1fr;}.cmd-box{font-size:10px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1><span class="cube">▣</span> Server コマンド一覧</h1>
+    <p class="subtitle">マイクラ サーバー用コマンド管理</p>
+  </header>
+
+  <!-- 編集者バー -->
+  <section class="panel">
+    <div class="editorbar">
+      <div class="status">
+        <span class="dot load" id="syncDot"></span>
+        <span id="syncText">読み込み中…</span>
+      </div>
+      <div>
+        <button class="mc-btn small" id="editorToggle">🔑 編集者ログイン</button>
+      </div>
+    </div>
+    <div class="token-area" id="tokenArea">
+      <div class="row">
+        <div class="field">
+          <label>GitHub トークン（このリポジトリの Contents:読み書き 権限）</label>
+          <input id="tokenInput" type="password" placeholder="github_pat_... または ghp_...">
+        </div>
+        <button class="mc-btn green" id="tokenSave">保存してログイン</button>
+        <button class="mc-btn red small" id="tokenClear">ログアウト</button>
+      </div>
+      <p class="hint">
+        トークンはこの端末のブラウザにのみ保存され、GitHubへの保存時だけ使われます。作り方は下部の説明を参照。
+      </p>
+    </div>
+  </section>
+
+  <!-- 登録フォーム（編集者のみ表示） -->
+  <section class="panel" id="formPanel" style="display:none;">
+    <h2 id="formTitle">コマンドを登録</h2>
+    <form id="addForm" class="form-grid" autocomplete="off">
+      <div class="field">
+        <label>コマンド名 <span class="req">*</span></label>
+        <input id="f-title" placeholder="例: OP権限を付与" required>
+      </div>
+      <div class="field">
+        <label>ジャンル <span class="req">*</span></label>
+        <input id="f-genre" list="genre-list" placeholder="例: 権限 / ワールド / 天候" required>
+        <datalist id="genre-list"></datalist>
+      </div>
+      <div class="field full">
+        <label>コマンド本体 <span class="req">*</span></label>
+        <textarea id="f-cmd" placeholder="例: /op <プレイヤー名>" required></textarea>
+      </div>
+      <div class="field">
+        <label>マイクラ バージョン</label>
+        <input id="f-ver" placeholder="例: 1.21 / 1.20.x / 全般">
+      </div>
+      <div class="field">
+        <label>メモ（任意）</label>
+        <input id="f-desc" placeholder="使い方や注意点など">
+      </div>
+      <div class="form-actions">
+        <button type="button" id="cancelEdit" class="mc-btn small" style="display:none;">キャンセル</button>
+        <button type="submit" id="submitBtn" class="mc-btn green">＋ 一覧に追加</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- 絞り込み -->
+  <div class="toolbar">
+    <div class="field">
+      <label>ジャンルで絞り込み</label>
+      <select id="filter-genre"><option value="">すべて</option></select>
+    </div>
+    <div class="field">
+      <label>バージョンで絞り込み</label>
+      <select id="filter-ver"><option value="">すべて</option></select>
+    </div>
+    <div class="field">
+      <label>キーワード検索</label>
+      <input id="filter-q" placeholder="名前・コマンドで検索">
+    </div>
+    <span class="count-badge" id="countBadge">0 件</span>
+  </div>
+
+  <!-- 一覧 -->
+  <section class="list" id="list"></section>
+
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ===================================================================
+   設定：ここを自分のGitHubに合わせて書き換える
+   =================================================================== */
+const CONFIG = {
+  owner:  'maturihina0303-lang', // ← GitHubのユーザー名
+  repo:   'server-commands',     // ← リポジトリ名
+  branch: 'main',                // ← 通常は main
+  path:   'commands.json'        // ← データファイル名（変更不要）
+};
+/* =================================================================== */
+
+const TOKEN_KEY = 'mc_gh_token';
+const API = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`;
+
+let data = [];
+let fileSha = null;
+let editingId = null;
+let token = localStorage.getItem(TOKEN_KEY) || '';
+
+/* ---------- elements ---------- */
+const listEl = document.getElementById('list');
+const fGenre = document.getElementById('filter-genre');
+const fVer = document.getElementById('filter-ver');
+const fQ = document.getElementById('filter-q');
+const countBadge = document.getElementById('countBadge');
+const formPanel = document.getElementById('formPanel');
+const syncDot = document.getElementById('syncDot');
+const syncText = document.getElementById('syncText');
+
+/* ---------- helpers ---------- */
+function id(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function b64encode(str){ return btoa(unescape(encodeURIComponent(str))); }
+function b64decode(b64){ return decodeURIComponent(escape(atob(b64.replace(/\n/g,'')))); }
+function setStatus(kind, text){
+  syncDot.className = 'dot ' + kind;
+  syncText.textContent = text;
+}
+
+/* ---------- GitHub read ---------- */
+async function fetchData(){
+  const headers = {'Accept':'application/vnd.github+json'};
+  if(token) headers['Authorization'] = 'Bearer ' + token;
+  const res = await fetch(API + '?ref=' + CONFIG.branch + '&t=' + Date.now(), {headers, cache:'no-store'});
+  if(res.status === 404){ // ファイルがまだ無い → 空で開始
+    fileSha = null;
+    return [];
+  }
+  if(!res.ok){
+    const e = new Error('read failed'); e.status = res.status; throw e;
+  }
+  const json = await res.json();
+  fileSha = json.sha;
+  let arr = [];
+  try{ arr = JSON.parse(b64decode(json.content)); }catch(e){ arr = []; }
+  return Array.isArray(arr) ? arr : [];
+}
+
+/* ---------- GitHub write（1操作ずつ、競合したら取り直して再試行） ---------- */
+async function mutate(applyFn, message){
+  if(!token){ toast('編集者ログインが必要だよ', true); return false; }
+  setStatus('load','保存中…');
+  for(let attempt=0; attempt<3; attempt++){
+    // 最新を取り直す（他の人の変更を消さないため）
+    const fresh = await fetchData();
+    applyFn(fresh);
+    const body = {
+      message: message,
+      content: b64encode(JSON.stringify(fresh, null, 2)),
+      branch: CONFIG.branch
+    };
+    if(fileSha) body.sha = fileSha;
+    const res = await fetch(API, {
+      method:'PUT',
+      headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    if(res.ok){
+      const json = await res.json();
+      fileSha = json.content.sha;
+      data = fresh;
+      render();
+      setStatus('ok','同期OK');
+      return true;
+    }
+    if(res.status === 409){ continue; } // 競合→取り直して再試行
+    if(res.status === 401 || res.status === 403){
+      setStatus('err','権限エラー');
+      toast('トークンが無効か権限不足です', true);
+      return false;
+    }
+    setStatus('err','保存失敗');
+    toast('保存に失敗しました（'+res.status+'）', true);
+    return false;
+  }
+  setStatus('err','競合');
+  toast('他の人と同時編集で競合しました。もう一度試してね', true);
+  return false;
+}
+
+/* ---------- 初回読み込み ---------- */
+async function initLoad(){
+  if(CONFIG.owner === 'GITHUB_USERNAME'){
+    setStatus('warn','未設定');
+    toast('CONFIG（owner/repo）を設定してね', true);
+  }
+  setStatus('load','読み込み中…');
+  try{
+    data = await fetchData();
+    setStatus(token?'ok':'ok', token ? '編集者モード' : '閲覧モード');
+    render();
+  }catch(e){
+    setStatus('err','読み込み失敗');
+    toast('データの読み込みに失敗しました', true);
+  }
+}
+
+/* ---------- render ---------- */
+function uniq(key){ return [...new Set(data.map(d=>d[key]).filter(Boolean))].sort(); }
+function refreshOptions(){
+  const g = fGenre.value, v = fVer.value;
+  fGenre.innerHTML = '<option value="">すべて</option>' + uniq('genre').map(x=>`<option${x===g?' selected':''}>${esc(x)}</option>`).join('');
+  fVer.innerHTML = '<option value="">すべて</option>' + uniq('ver').map(x=>`<option${x===v?' selected':''}>${esc(x)}</option>`).join('');
+  document.getElementById('genre-list').innerHTML = uniq('genre').map(x=>`<option value="${esc(x)}">`).join('');
+}
+function render(){
+  refreshOptions();
+  const g = fGenre.value, v = fVer.value, q = fQ.value.trim().toLowerCase();
+  const isEditor = !!token;
+  const rows = data.filter(d=>{
+    if(g && d.genre!==g) return false;
+    if(v && d.ver!==v) return false;
+    if(q && !((d.title||'').toLowerCase().includes(q) || (d.cmd||'').toLowerCase().includes(q))) return false;
+    return true;
+  });
+  countBadge.textContent = rows.length + ' 件';
+  if(rows.length===0){
+    listEl.innerHTML = `<div class="empty">該当するコマンドがありません。${isEditor?'<br>上の <b>コマンドを登録</b> から追加してね！':''}</div>`;
+    return;
+  }
+  listEl.innerHTML = rows.map(d=>`
+    <article class="card">
+      <div class="card-top">
+        <div class="card-title">⛏ ${esc(d.title)}</div>
+        <div class="tags">
+          <span class="tag genre">🏷 ${esc(d.genre)}</span>
+          ${d.ver?`<span class="tag ver">⛏ ${esc(d.ver)}</span>`:''}
+        </div>
+      </div>
+      <div class="cmd-row"><code class="cmd-box">${esc(d.cmd)}</code></div>
+      ${d.desc?`<p class="desc">📝 ${esc(d.desc)}</p>`:''}
+      <div class="card-actions">
+        <button class="mc-btn green small" data-copy="${d.id}">📋 コピー</button>
+        ${isEditor?`<button class="mc-btn small" data-edit="${d.id}">✎ 編集</button>
+        <button class="mc-btn red small" data-del="${d.id}">🗑 削除</button>`:''}
+      </div>
+    </article>`).join('');
+}
+
+/* ---------- editor login ---------- */
+const tokenArea = document.getElementById('tokenArea');
+document.getElementById('editorToggle').addEventListener('click', ()=>{
+  tokenArea.classList.toggle('show');
+  document.getElementById('tokenInput').value = token;
+});
+document.getElementById('tokenSave').addEventListener('click', async ()=>{
+  const t = document.getElementById('tokenInput').value.trim();
+  if(!t){ toast('トークンを入力してね', true); return; }
+  token = t;
+  localStorage.setItem(TOKEN_KEY, t);
+  formPanel.style.display = 'block';
+  tokenArea.classList.remove('show');
+  toast('編集者モードON！');
+  await initLoad();
+});
+document.getElementById('tokenClear').addEventListener('click', ()=>{
+  token = '';
+  localStorage.removeItem(TOKEN_KEY);
+  formPanel.style.display = 'none';
+  setStatus('ok','閲覧モード');
+  render();
+  toast('ログアウトしたよ');
+});
+
+/* ---------- form ---------- */
+const form = document.getElementById('addForm');
+const submitBtn = document.getElementById('submitBtn');
+const cancelBtn = document.getElementById('cancelEdit');
+function val(id){ return document.getElementById(id).value.trim(); }
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  const item = { title:val('f-title'), genre:val('f-genre'), cmd:val('f-cmd'), ver:val('f-ver'), desc:val('f-desc') };
+  if(!item.title || !item.genre || !item.cmd) return;
+  submitBtn.disabled = true;
+  let ok;
+  if(editingId){
+    const eid = editingId;
+    ok = await mutate(arr=>{ const t=arr.find(x=>x.id===eid); if(t) Object.assign(t,item); }, `edit: ${item.title}`);
+    if(ok){ toast('更新したよ！'); exitEdit(); }
+  }else{
+    item.id = id();
+    ok = await mutate(arr=>{ arr.unshift(item); }, `add: ${item.title}`);
+    if(ok){ toast('コマンドを追加したよ！'); form.reset(); }
+  }
+  submitBtn.disabled = false;
+});
+cancelBtn.addEventListener('click', exitEdit);
+function exitEdit(){
+  editingId = null;
+  submitBtn.textContent = '＋ 一覧に追加';
+  cancelBtn.style.display = 'none';
+  document.getElementById('formTitle').textContent = 'コマンドを登録';
+  form.reset();
+}
+
+/* ---------- list actions ---------- */
+listEl.addEventListener('click', async e=>{
+  const c = e.target.closest('[data-copy]');
+  const ed = e.target.closest('[data-edit]');
+  const dl = e.target.closest('[data-del]');
+  if(c){ copyText(data.find(x=>x.id===c.dataset.copy).cmd); }
+  if(ed){
+    const d = data.find(x=>x.id===ed.dataset.edit);
+    document.getElementById('f-title').value = d.title;
+    document.getElementById('f-genre').value = d.genre;
+    document.getElementById('f-cmd').value   = d.cmd;
+    document.getElementById('f-ver').value   = d.ver||'';
+    document.getElementById('f-desc').value  = d.desc||'';
+    editingId = d.id;
+    submitBtn.textContent = '✔ 保存';
+    cancelBtn.style.display = 'inline-block';
+    document.getElementById('formTitle').textContent = 'コマンドを編集';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  if(dl){
+    const d = data.find(x=>x.id===dl.dataset.del);
+    if(confirm(`「${d.title}」を削除する？`)){
+      const did = dl.dataset.del;
+      const ok = await mutate(arr=>{ const i=arr.findIndex(x=>x.id===did); if(i>=0) arr.splice(i,1); }, `delete: ${d.title}`);
+      if(ok){ toast('削除したよ'); if(editingId===did) exitEdit(); }
+    }
+  }
+});
+
+/* ---------- copy ---------- */
+function copyText(text){
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>toast('📋 コピーしたよ！'), ()=>fallbackCopy(text));
+  }else{ fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); toast('📋 コピーしたよ！'); }catch(e){ toast('コピー失敗…', true); }
+  ta.remove();
+}
+
+/* ---------- filters ---------- */
+[fGenre,fVer].forEach(el=>el.addEventListener('change',render));
+fQ.addEventListener('input',render);
+
+/* ---------- toast ---------- */
+let toastTimer;
+function toast(msg, isErr){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className = 'show' + (isErr?' err':'');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.className=t.className.replace('show',''),1800);
+}
+
+/* ---------- boot ---------- */
+if(token) formPanel.style.display = 'block';
+initLoad();
+</script>
+</body>
+</html>

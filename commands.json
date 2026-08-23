@@ -1,0 +1,42 @@
+[
+  {
+    "id": "seed1",
+    "title": "OP権限を付与",
+    "genre": "権限",
+    "ver": "全般",
+    "cmd": "/op <プレイヤー名>",
+    "desc": "指定プレイヤーに管理者権限を与える。"
+  },
+  {
+    "id": "seed2",
+    "title": "ホワイトリストに追加",
+    "genre": "権限",
+    "ver": "全般",
+    "cmd": "/whitelist add <プレイヤー名>",
+    "desc": "参加を許可するプレイヤーを登録。"
+  },
+  {
+    "id": "seed3",
+    "title": "ゲームモード変更（クリエ）",
+    "genre": "ワールド",
+    "ver": "1.20〜1.21",
+    "cmd": "/gamemode creative <プレイヤー名>",
+    "desc": ""
+  },
+  {
+    "id": "seed4",
+    "title": "時間を朝にする",
+    "genre": "天候・時間",
+    "ver": "全般",
+    "cmd": "/time set day",
+    "desc": ""
+  },
+  {
+    "id": "seed5",
+    "title": "晴れにする",
+    "genre": "天候・時間",
+    "ver": "全般",
+    "cmd": "/weather clear",
+    "desc": ""
+  }
+]
