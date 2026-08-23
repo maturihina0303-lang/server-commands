@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]蚊vs人間1.21-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]蚊vs人間1.21撮影-fabric",
+    "ver": "1.21",
+    "desc": "",
+    "id": "mt5jyllivcog"
+  },
+  {
     "title": "[FA]ハートのA1.19.3-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]ハートのA1.19.3-fabric",
