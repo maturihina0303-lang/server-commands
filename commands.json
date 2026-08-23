@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]極限脱出1.21.11-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]極限脱出1.21.11-fabric",
+    "ver": "1.21.11",
+    "desc": "",
+    "id": "mt5k9lqr609u"
+  },
+  {
     "title": "[FA]1.19-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.19-fabric",
