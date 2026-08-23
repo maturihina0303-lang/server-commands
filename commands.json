@@ -1,5 +1,13 @@
 [
   {
+    "title": "【起動】1.20.4-forge",
+    "genre": "Forge",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FO]1.20.4-forge",
+    "ver": "1.20.4",
+    "desc": "",
+    "id": "mt5kbtsc8yt5"
+  },
+  {
     "title": "[FA]1.21.11-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.21.11-fabric",
