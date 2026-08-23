@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]列車殺人事件26.1-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]列車殺人事件26.1-fabric",
+    "ver": "26.1",
+    "desc": "",
+    "id": "mt5ka0sunu31"
+  },
+  {
     "title": "[FA]極限脱出1.21.11-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]極限脱出1.21.11-fabric",
