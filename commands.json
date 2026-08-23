@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]めっちゃカメレオン26.1.2-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]めっちゃカメレオン26.1.2-fabric",
+    "ver": "26.1.2",
+    "desc": "",
+    "id": "mt5kaw3kqra6"
+  },
+  {
     "title": "[FA]26.1.2-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]26.1.2-fabric",
