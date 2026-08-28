@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]デート力サバイバル26.2-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]デート力サバイバル26.2-fabric",
+    "ver": "26.2",
+    "desc": "",
+    "id": "mtctbivtqz7m"
+  },
+  {
     "title": "[FA]電気椅子ゲーム26.2-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]電気椅子ゲーム26.2-fabric",
