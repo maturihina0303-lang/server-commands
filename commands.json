@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]1.21.10-fabric",
+    "genre": "Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.21.10-fabric",
+    "ver": "1.21.10",
+    "desc": "",
+    "id": "mtlubvn9ucgf"
+  },
+  {
     "title": "[FA]青鬼ごっこ26.2-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]青鬼ごっこ26.2-fabric",
