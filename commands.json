@@ -193,7 +193,7 @@
   },
   {
     "title": "[FA]列車殺人事件26.1-fabric",
-    "genre": "【企画】Fabric",
+    "genre": "【企画】人狼Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]列車殺人事件26.1-fabric",
     "ver": "26.1",
     "desc": "",
