@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]お掃除シリーズ26.2-fabric",
+    "genre": "【企画】Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]お掃除シリーズ26.2-fabric",
+    "ver": "26.2",
+    "desc": "",
+    "id": "mujz8fgt6deo"
+  },
+  {
     "title": "[FA]1.21.10-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.21.10-fabric",
