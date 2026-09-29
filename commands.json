@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]1.19.4-fabric",
+    "genre": "Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.19.4-fabric",
+    "ver": "1.19.4",
+    "desc": "",
+    "id": "mummy9rc4ge8"
+  },
+  {
     "title": "[FA]お掃除シリーズ26.2-fabric",
     "genre": "【企画】Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]お掃除シリーズ26.2-fabric",
