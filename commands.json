@@ -1,5 +1,13 @@
 [
   {
+    "title": "[FA]ピンポンダッシュ人狼26.2-fabric",
+    "genre": "【企画】人狼Fabric",
+    "cmd": "cd ~/mc_servers\n./start_server.sh [FA]ピンポンダッシュ人狼26.2-fabric",
+    "ver": "26.2",
+    "desc": "",
+    "id": "mv6oj1amntfq"
+  },
+  {
     "title": "[FA]1.19.4-fabric",
     "genre": "Fabric",
     "cmd": "cd ~/mc_servers\n./start_server.sh [FA]1.19.4-fabric",
